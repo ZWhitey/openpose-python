@@ -5,6 +5,12 @@ branches:
 image: Visual Studio 2017
 clone_folder: c:\openpose-python
 
+environment:
+  APPVEYOR_RDP_PASSWORD: Abc123
+
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 before_build:
   - cmd: echo Installing CUDA toolkit
   - cmd: appveyor DownloadFile https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10 -FileName cuda.exe
