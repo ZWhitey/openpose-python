@@ -8,7 +8,7 @@ setup(name='python-openpose',
       url='https://github.com/ZWhitey/openpose-python',
       license='GPL-3.0',
       keywords='openpose',
-      packages=['openpose'],
+      packages=['pyopenpose'],
       install_requires=[],
       classifiers=[
         'Development Status :: 3 - Alpha',
@@ -18,6 +18,6 @@ setup(name='python-openpose',
 
         ],
     include_package_data=True,
-    package_data={'openpose':['*.pyd']},
+    package_data={'pyopenpose':['*.pyd','*.dll']},
       python_requires='~=3.6'
      )
