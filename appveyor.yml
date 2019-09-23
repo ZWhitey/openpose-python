@@ -21,9 +21,9 @@ before_build:
   - cmd: echo Installing cudnn
   - cmd: appveyor DownloadFile https://www.dropbox.com/s/45pboe5e5dhz8gm/cudnn.rar?dl=1
   - cmd: 7z.exe x cudnn.rar 
-  - cmd: copy "cudnn\cuda\bin\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin"
-  - cmd: copy "cudnn\cuda\lib\x64\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib\x64"
-  - cmd: copy "cudnn\cuda\include\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\include"
+  - cmd: copy "cudnn\bin\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin"
+  - cmd: copy "cudnn\lib\x64\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib\x64"
+  - cmd: copy "cudnn\include\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\include"
 
 build_script:
   - cmd: cd ..
