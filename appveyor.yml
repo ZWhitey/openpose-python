@@ -1,4 +1,4 @@
-version: Test
+version: {build}
 branches:
   only:
   - dev
