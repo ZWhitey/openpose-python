@@ -13,6 +13,7 @@ init:
 
 before_build:
   - cmd: set PATH=C:\Python36-x64;%PATH%
+  - cmd: set PATH=C:\Python36-x64\Scripts;%PATH%
   - cmd: echo Installing wheel setuptools
   - cmd: pip3.6 install wheel setuptools
   - cmd: echo Installing CUDA toolkit
