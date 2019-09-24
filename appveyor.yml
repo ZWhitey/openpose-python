@@ -12,6 +12,7 @@ init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 before_build:
+  - cmd: set PATH=C:\Python36-x64;%PATH%
   - cmd: echo Installing wheel setuptools
   - cmd: pip3.6 install wheel setuptools
   - cmd: echo Installing CUDA toolkit
@@ -26,7 +27,6 @@ before_build:
   - cmd: copy "cudnn\include\*.*" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\include"
 
 build_script:
-  - cmd: set PATH=C:\Python36-x64;%PATH%
   - cmd: cd ..
   - cmd: git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
   - cmd: cd openpose
