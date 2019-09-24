@@ -46,3 +46,8 @@ build_script:
 artifacts:
   - path: dist\python_openpose-1.5.1-py3-none-win_amd64.whl
     name: python_openpose-1.5.1
+  
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: /Bq3UTOgIMp9uF0hXGvub/uRDaFVxIvb48fNm5ATAF9uG2BU/vypHjvBlTlK5ORG
