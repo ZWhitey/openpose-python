@@ -40,9 +40,9 @@ build_script:
   - cmd: copy "x64\Release\*.dll" "c:\openpose-python\pyopenpose"
   - cmd: cd "c:\openpose-python\"
   - cmd: python setup.py bdist_wheel
+  - cmd: cd dist
   - cmd: rename "python_openpose-1.5.1-py3-none-any.whl" "python_openpose-1.5.1-py3-none-win_amd64.whl"
-  - cmd: copy "dist\*.whl" "c:\"
-  - cmd: 
+  - cmd: copy "*.whl" "c:\"
 artifacts:
   - path: python_openpose-1.5.1-py3-none-win_amd64.whl
     name: python_openpose-1.5.1
