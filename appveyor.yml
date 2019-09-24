@@ -12,6 +12,8 @@ init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 before_build:
+  - cmd: echo Installing wheel setuptools
+  - cmd: pip3.6 install wheel setuptools
   - cmd: echo Installing CUDA toolkit
   - cmd: appveyor DownloadFile https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10 -FileName cuda.exe
   - cmd: cuda.exe -s nvcc_10.0 nvprune_10.0 cublas_dev_10.0 cufft_dev_10.0 curand_dev_10.0 cusolver_dev_10.0 cusparse_dev_10.0 nvgraph_dev_10.0 npp_dev_10.0 nvrtc_dev_10.0 nvml_dev_10.0
@@ -36,7 +38,6 @@ build_script:
   - cmd: copy "python\openpose\Release\*.pyd" "c:\openpose-python\pyopenpose"
   - cmd: copy "x64\Release\*.dll" "c:\openpose-python\pyopenpose"
   - cmd: cd "c:\openpose-python\"
-  - cmd: pip3.6 install wheel setuptools
   - cmd: python setup.py bdist_wheel
   - cmd: rename "python_openpose-1.5.1-py3-none-any.whl" "python_openpose-1.5.1-py3-none-win_amd64.whl"
   - cmd: copy "dist\*.whl" "c:\"
