@@ -32,9 +32,17 @@ build_script:
   - cmd: cd openpose
   - cmd: mkdir build
   - cmd: cd build
-  - cmd: cmake -DBUILD_PYTHON=ON -G "Visual Studio 15 2017 Win64" ..
+  - cmd: cmake -DBUILD_PYTHON=ON -DBUILD_EXAMPLES=OFF -G "Visual Studio 15 2017 Win64" ..
   - cmd: cmake --build . --config "Release"
   - cmd: copy "bin\*.dll" "c:\openpose-python\pyopenpose"
   - cmd: copy "python\openpose\Release\*.pyd" "c:\openpose-python\pyopenpose"
   - cmd: copy "x64\Release\*.dll" "c:\openpose-python\pyopenpose"
   - cmd: dir "c:\openpose-python\pyopenpose"
+  - cmd: cd "c:\openpose-python\"
+  - cmd: python setup.py bdist_wheel
+  - cmd: rename "python_openpose-1.5.1-py3-none-any.whl" "python_openpose-1.5.1-py3-none-win_amd64.whl"
+  - cmd: copy "dist\*.whl" "c:\"
+  - cmd: 
+artifacts:
+  - path: python_openpose-1.5.1-py3-none-win_amd64.whl
+    name: python_openpose-1.5.1

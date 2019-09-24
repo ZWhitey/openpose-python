@@ -14,9 +14,11 @@ setup(name='python-openpose',
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: Microsoft :: Windows :: Windows 10',
+        'Environment :: Win32 (MS Windows)',
         'Programming Language :: Python :: 3.6'
 
         ],
+        platforms=['win_amd64'],
     include_package_data=True,
     package_data={'pyopenpose':['*.pyd','*.dll']},
       python_requires='~=3.6'
