@@ -44,5 +44,5 @@ build_script:
   - cmd: rename "python_openpose-1.5.1-py3-none-any.whl" "python_openpose-1.5.1-py3-none-win_amd64.whl"
   # - cmd: copy "*.whl" "c:\"
 artifacts:
-  - path: c:\openpose-python\dist\python_openpose-1.5.1-py3-none-win_amd64.whl
+  - path: dist\python_openpose-1.5.1-py3-none-win_amd64.whl
     name: python_openpose-1.5.1
