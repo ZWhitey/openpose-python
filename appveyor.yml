@@ -1,6 +1,9 @@
 version: 1.5.1.{build}
 image: Visual Studio 2017
 clone_folder: c:\openpose-python
+branches:
+  only:
+  - master
 
 before_build:
   - cmd: set PATH=C:\Python36-x64;%PATH%
