@@ -1,15 +1,6 @@
-version: 1.0.{build}
-branches:
-  only:
-  - dev
+version: 1.5.1.{build}
 image: Visual Studio 2017
 clone_folder: c:\openpose-python
-
-environment:
-  APPVEYOR_RDP_PASSWORD: Abc123
-
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 before_build:
   - cmd: set PATH=C:\Python36-x64;%PATH%
@@ -42,7 +33,6 @@ build_script:
   - cmd: python setup.py bdist_wheel
   - cmd: cd dist
   - cmd: rename "python_openpose-1.5.1-py3-none-any.whl" "python_openpose-1.5.1-py3-none-win_amd64.whl"
-  # - cmd: copy "*.whl" "c:\"
 artifacts:
   - path: dist\python_openpose-1.5.1-py3-none-win_amd64.whl
     name: python_openpose-1.5.1
