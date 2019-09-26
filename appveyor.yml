@@ -8,13 +8,13 @@ clone_folder: c:\openpose-python
 environment:
   matrix:
     - PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5"
+      WHL_NAME: "35"
 
     - PYTHON: "C:\\Python36-x64"
-      PYTHON_VERSION: "3.6" 
+      PYTHON_VERSION: "36" 
 
     - PYTHON: "C:\\Python37-x64"
-      PYTHON_VERSION: "3.7" 
+      PYTHON_VERSION: "37" 
 
 
 before_build:
@@ -23,7 +23,7 @@ before_build:
   - cmd: python --version
   - cmd: pip -V
   - cmd: echo Installing wheel setuptools
-  - cmd: pip3.6 install wheel setuptools
+  - cmd: pip install wheel setuptools
   - cmd: echo Installing CUDA toolkit
   - cmd: appveyor DownloadFile https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_411.31_win10 -FileName cuda.exe
   - cmd: cuda.exe -s nvcc_10.0 nvprune_10.0 cublas_dev_10.0 cufft_dev_10.0 curand_dev_10.0 cusolver_dev_10.0 cusparse_dev_10.0 nvgraph_dev_10.0 npp_dev_10.0 nvrtc_dev_10.0 nvml_dev_10.0
@@ -49,11 +49,10 @@ build_script:
   - cmd: cd "c:\openpose-python\"
   - cmd: python setup.py bdist_wheel
   - cmd: cd dist
-  - cmd: rename "python_openpose-1.5.1-py3-none-any.whl" "python_openpose-1.5.1-py3-none-win_amd64.whl"
-  # - cmd: copy "*.whl" "c:\"
+  - cmd: rename "*.whl" "python_openpose-1.5.1-py%PYTHON_VERSION%-none-win_amd64.whl"
 artifacts:
-  - path: dist\python_openpose-1.5.1-py3-none-win_amd64.whl
-    name: python_openpose-1.5.1
+  - path: dist\python_openpose-1.5.1-py%PYTHON_VERSION%-none-win_amd64.whl
+    name: python_openpose-1.5.1-py%PYTHON_VERSION%
   
 # deploy:
 # - provider: GitHub
