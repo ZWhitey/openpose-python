@@ -1,4 +1,4 @@
-version: 1.0.{build}
+version: 1.5.1.{build}
 branches:
   only:
   - dev
@@ -11,9 +11,23 @@ environment:
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
+environment:
+  matrix:
+    - PYTHON: "C:\\Python35-x64"
+      PYTHON_VERSION: "3.5"
+
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "3.6" 
+
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "3.7" 
+
+
 before_build:
-  - cmd: set PATH=C:\Python36-x64;%PATH%
-  - cmd: set PATH=C:\Python36-x64\Scripts;%PATH%
+  - cmd: set PATH=%PYTHON%;%PATH%
+  - cmd: set PATH=%PYTHON%\Scripts;%PATH%
+  - cmd: python --version
+  - cmd: pip -V
   - cmd: echo Installing wheel setuptools
   - cmd: pip3.6 install wheel setuptools
   - cmd: echo Installing CUDA toolkit
@@ -47,7 +61,7 @@ artifacts:
   - path: dist\python_openpose-1.5.1-py3-none-win_amd64.whl
     name: python_openpose-1.5.1
   
-deploy:
-- provider: GitHub
-  auth_token:
-    secure: /Bq3UTOgIMp9uF0hXGvub/uRDaFVxIvb48fNm5ATAF9uG2BU/vypHjvBlTlK5ORG
+# deploy:
+# - provider: GitHub
+#   auth_token:
+#     secure: /Bq3UTOgIMp9uF0hXGvub/uRDaFVxIvb48fNm5ATAF9uG2BU/vypHjvBlTlK5ORG
