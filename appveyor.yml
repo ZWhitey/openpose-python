@@ -8,7 +8,7 @@ clone_folder: c:\openpose-python
 environment:
   matrix:
     - PYTHON: "C:\\Python35-x64"
-      WHL_NAME: "35"
+      PYTHON_VERSION: "35"
 
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "36" 
@@ -54,6 +54,10 @@ artifacts:
   - path: dist\python_openpose-1.5.1-py%PYTHON_VERSION%-none-win_amd64.whl
     name: python_openpose-1.5.1-py%PYTHON_VERSION%
   
+skip_commits:
+  files:
+    - README.md
+ 
 # deploy:
 # - provider: GitHub
 #   auth_token:
