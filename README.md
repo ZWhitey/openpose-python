@@ -1,5 +1,7 @@
 # Openpose Python
 
+[![Build status](https://ci.appveyor.com/api/projects/status/kjc2uttibxo5b4uo?svg=true)](https://ci.appveyor.com/project/ZWhitey/openpose-python)
+
 Unofficial pre-built [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) packages with cuda for Python.
 
 This package only test on windows 10 with python 3.6 
@@ -7,18 +9,17 @@ This package only test on windows 10 with python 3.6
 
 Prerequisites:
 
-* Python 3
+* Python 3.5+
 * Numpy
 * OpenCV
-* Windows 
+* Windows x64
 * Nvidia GPU
 
 Installaion:
 
 * Python library
-
     1. Download whl file from [release page](https://github.com/ZWhitey/openpose-python/releases)
-    2. Run `pip install WHL-FILE-NAME` to install
+    2. Run `pip install WHL_FILE_NAME` to install
 * Openpose models  
     1. Clone [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) 
     2. Run `./models/getModels.bat` to download models
@@ -58,6 +59,9 @@ except Exception as e:
 More detailed information can be find in [OpenPose Official Repository](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
 
 
+# Todo
 
+- Support other OS (linux, mac)
+- Support OpenCL and CPU version
 
 
