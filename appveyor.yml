@@ -5,6 +5,17 @@ branches:
   only:
   - master
 
+environment:
+  matrix:
+    - PYTHON: "C:\\Python35-x64"
+      PYTHON_VERSION: "35"
+
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "36" 
+
+    - PYTHON: "C:\\Python37-x64"
+      PYTHON_VERSION: "37" 
+      
 before_build:
   - cmd: set PATH=%PYTHON%;%PATH%
   - cmd: set PATH=%PYTHON%\Scripts;%PATH%
