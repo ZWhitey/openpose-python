@@ -63,5 +63,5 @@ More detailed information can be find in [OpenPose Official Repository](https://
 
 - Support other OS (linux, mac)
 - Support OpenCL and CPU version
-
+- Create lite version(without dll) and upload to pypi
 
